@@ -1,102 +1,187 @@
-import Image from "next/image";
+import { Github, Mail, Linkedin } from "lucide-react";
+import Link from "next/link";
+import { Button } from "../components/ui/button";
+// import ProjectCard from "../ui/ProjectCard";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="flex min-h-screen flex-col">
+      <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur mx-2">
+        <div className="container flex h-14 items-center justify-between">
+          <Link href="/" className="font-bold">
+            AK
+          </Link>
+          <nav className="flex items-center gap-4">
+            <Link
+              href="#about"
+              className="text-sm hover:underline underline-offset-4"
+            >
+              About
+            </Link>
+            <Link
+              href="#projects"
+              className="text-sm hover:underline underline-offset-4"
+            >
+              Projects
+            </Link>
+            <Link
+              href="#contact"
+              className="text-sm hover:underline underline-offset-4"
+            >
+              Contact
+            </Link>
+          </nav>
         </div>
+      </header>
+      <main className="flex-1">
+        <section className="container py-24 sm:py-32 space-y-8 md:space-y-16">
+          <div className="flex flex-col items-center text-center">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight">
+              Ayush Kumar
+            </h1>
+            <p className="mt-6 max-w-[42rem] text-muted-foreground sm:text-xl">
+              Frontend Wizard ⚡ | Cloud Explorer ☁️
+            </p>
+            <div className="mt-6 flex gap-4">
+              <Button variant="outline" size="icon" asChild>
+                <Link
+                  href="https://github.com/dev1ayush"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="h-4 w-4" />
+                  <span className="sr-only">GitHub</span>
+                </Link>
+              </Button>
+              <Button variant="outline" size="icon" asChild>
+                <Link
+                  href="https://www.linkedin.com/in/unfilteredayush/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Linkedin className="h-4 w-4" />
+                  <span className="sr-only">LinkedIn</span>
+                </Link>
+              </Button>
+              <Button variant="outline" size="icon" asChild>
+                <Link href="mailto:ayshsnghh@gmail.com">
+                  <Mail className="h-4 w-4" />
+                  <span className="sr-only">Email</span>
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* <section id="about" className="container py-12 md:py-24 border-t">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight">About Me</h2>
+            </div>
+            <div className="space-y-4">
+              <p className="text-muted-foreground">
+                I'm a frontend developer with 5 years of experience building
+                modern web applications. I specialize in React, TypeScript, and
+                responsive design.
+              </p>
+              <p className="text-muted-foreground">
+                My approach combines clean code with thoughtful user
+                experiences. I'm passionate about creating interfaces that are
+                both beautiful and functional.
+              </p>
+            </div>
+          </div>
+        </section> */}
+
+        {/* <section id="projects" className="container py-12 md:py-24 border-t">
+          <div className="space-y-6">
+            <h2 className="text-2xl font-bold tracking-tight">
+              Selected Projects
+            </h2>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <ProjectCard
+                title="E-commerce Platform"
+                description="A full-featured online store with cart, checkout, and payment integration."
+                tags={["React", "Next.js", "Stripe"]}
+              />
+              <ProjectCard
+                title="Dashboard UI"
+                description="Analytics dashboard with data visualization and real-time updates."
+                tags={["TypeScript", "D3.js", "Tailwind"]}
+              />
+              <ProjectCard
+                title="Mobile App"
+                description="Cross-platform mobile application for task management and productivity."
+                tags={["React Native", "Firebase", "Redux"]}
+              />
+            </div>
+          </div>
+        </section> */}
+
+        {/* <section id="contact" className="container py-12 md:py-24 border-t">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight">
+                Get in Touch
+              </h2>
+              <p className="mt-4 text-muted-foreground">
+                I'm currently available for freelance work and full-time
+                positions.
+              </p>
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-center gap-2">
+                <Mail className="h-5 w-5 text-muted-foreground" />
+                <a href="mailto:hello@example.com" className="hover:underline">
+                  hello@example.com
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Linkedin className="h-5 w-5 text-muted-foreground" />
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  linkedin.com/in/johndoe
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Github className="h-5 w-5 text-muted-foreground" />
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  github.com/johndoe
+                </a>
+              </div>
+            </div>
+          </div>
+        </section> */}
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      <footer className="border-t py-6 md:py-8">
+        <div className="flex justify-end mr-3">
+          <p className="text-sm text-muted-foreground ">
+            © {new Date().getFullYear()} Ayush Kumar. All rights reserved.
+          </p>
+          {/* <nav className="flex gap-4">
+            <Link
+              href="#"
+              className="text-sm text-muted-foreground hover:underline"
+            >
+              Privacy
+            </Link>
+            <Link
+              href="#"
+              className="text-sm text-muted-foreground hover:underline"
+            >
+              Terms
+            </Link>
+          </nav> */}
+        </div>
       </footer>
     </div>
   );
